@@ -3,6 +3,7 @@ const gridSizeButton = document.querySelector('.gridSizeButton');
 
 function makeGrid(sideLength) {
     let grid = document.createElement('div');
+    grid.classList.add('grid');
     for (x=0; x < sideLength; x++){
         let gridRow = document.createElement('div');
         gridRow.classList.add('gridRow');
@@ -25,4 +26,12 @@ let gridSquare = document.querySelectorAll('.gridSquare');
 gridSquare.forEach((element)=> addEventListener('mouseover', (event) => {
     colorChange(event);
 }));
+
+
+gridSizeButton.addEventListener('click', (event) =>{
+    document.querySelector('.grid').remove();
+
+    let newGridSize = prompt('What would you like the side lengths for the grid to be?');
+    makeGrid(newGridSize);
+})
 
